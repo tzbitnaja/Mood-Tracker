@@ -1,0 +1,30 @@
+<ion-view title="Home">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-select" name="MoodDropdown">
+                <span class="input-label">Mood</span>
+                <select>
+                    <option>Happy</option>
+                    <option>Sad</option>
+                    <option>Angry</option>
+                    <option>Stressed</option>
+                    <option>Hungry</option>
+                    <option>Anxious</option>
+                    <option>Jealous</option>
+                    <option>Depressed</option>
+                    <option>Tired</option>
+                    <option></option>
+                </select>
+            </label>
+            <label class="item item-input" name="MoodTrigger">
+                <span class="input-label">Mood Trigger</span>
+                <input type="text" placeholder="Enter Your Trigger">
+            </label>
+            <label class="item item-input" name="MoodComments">
+                <span class="input-label">Comments</span>
+                <input type="text" placeholder="Enter Your Comments">
+            </label>
+        </form>
+        <a ui-sref="tabsController.moodLog" id="home-button1" class="button button-balanced  button-block">Submit Mood</a>
+    </ion-content>
+</ion-view>
