@@ -1,30 +1,20 @@
 <ion-view title="Home">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
+    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="moodLogCtrl">
+        <form class="list" ng-submit="AddMood(data)">
             <label class="item item-select" name="MoodDropdown">
                 <span class="input-label">Mood</span>
-                <select>
-                    <option>Happy</option>
-                    <option>Sad</option>
-                    <option>Angry</option>
-                    <option>Stressed</option>
-                    <option>Hungry</option>
-                    <option>Anxious</option>
-                    <option>Jealous</option>
-                    <option>Depressed</option>
-                    <option>Tired</option>
-                    <option></option>
+                <select ng-model="data.newMood" ng-options="item.mood for item in MoodList">
                 </select>
             </label>
             <label class="item item-input" name="MoodTrigger">
                 <span class="input-label">Mood Trigger</span>
-                <input type="text" placeholder="Enter Your Trigger">
+                <input type="text" placeholder="Enter Your Trigger" ng-model="data.newTrigger">
             </label>
             <label class="item item-input" name="MoodComments">
                 <span class="input-label">Comments</span>
-                <input type="text" placeholder="Enter Your Comments">
+                <input type="text" placeholder="Enter Your Comments" ng-model="data.newComment">
             </label>
         </form>
-        <a ui-sref="tabsController.moodLog" id="home-button1" class="button button-balanced  button-block">Submit Mood</a>
+        <a ui-sref="tabsController.moodLog" id="home-button1" class="button button-balanced  button-block" type="submit">Submit Mood</a>
     </ion-content>
 </ion-view>
