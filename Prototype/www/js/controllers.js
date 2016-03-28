@@ -1,6 +1,35 @@
 angular.module('app.controllers', ['ionic'])
 
 .controller('homeCtrl', function($scope) {
+  $scope.defaultMoods = [{
+    mood: 'Angry'
+  },
+  {
+    mood: 'Sad'
+  },{
+    mood: 'Happy'
+  },{
+    mood: 'Stressed'
+  },{
+    mood: 'Hungry'
+  },{
+    mood: 'Anxious'
+  },{
+    mood: 'Jealous'
+  },{
+    mood: 'Depressed'
+  },{
+    mood: 'Tired'
+  }];
+
+  $scope.AddMood = function (data) {
+  $scope.MoodList.push({
+    mood: data.newMood,
+    trigger: data.newTrigger,
+    comment: data.newComment
+  });
+  data.newItem = '';
+};
 
 })
 
@@ -46,20 +75,13 @@ angular.module('app.controllers', ['ionic'])
         comment: ''
       }];
 
-      $scope.AddMood = function (data) {
-      $scope.MoodList.push({
-        mood: data.newMood,
-        trigger: data.newTrigger,
-        comment: data.newComment
-      });
-      data.newItem = '';
-    };
 })
 
 .controller('trackProgressCtrl', function($scope) {
 
 })
 
+//controller for a modal, thinking about using it for submit mood
 .controller('modalController', function($scope, $ionicModal) {
   $ionicModal.fromTemplateUrl('my-modal.html', {
     scope: $scope,

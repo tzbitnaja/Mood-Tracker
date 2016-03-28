@@ -1,9 +1,9 @@
 <ion-view title="Home">
-    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="moodLogCtrl">
+    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="homeCtrl">
         <form class="list" ng-submit="AddMood(data)">
             <label class="item item-select" name="MoodDropdown">
                 <span class="input-label">Mood</span>
-                <select ng-model="data.newMood" ng-options="item.mood for item in MoodList">
+                <select ng-model="data.newMood" ng-options="item.mood for item in defaultMoods">
                 </select>
             </label>
             <label class="item item-input" name="MoodTrigger">
