@@ -1,4 +1,4 @@
-angular.module('app.controllers', ['ionic'])
+angular.module('app.controllers', [])
 
 .controller('homeCtrl', function($scope) {
   $scope.defaultMoods = [{
@@ -30,6 +30,10 @@ angular.module('app.controllers', ['ionic'])
   });
   data.newItem = '';
 };
+
+})
+
+.controller('logMoodCtrl', function($scope, $ionicPopup, $timeout) {
 
 })
 
