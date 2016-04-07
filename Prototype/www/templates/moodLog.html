@@ -1,12 +1,13 @@
 <ion-view title="Mood Log" id="page4">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
-    <ion-content>
-        <ion-list ng-controller="moodLogCtrl">
-          <ion-item ng-repeat="item in MoodList">
-            <div class="buttons">
-              <button class="button">{{item.mood}}</button>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-content>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <!--  repeat through all the log entries-->
+    <div class="logs" ng-repeat='entry in entries'>
+    	<!-- display logs-->
+    	<p class="log" >
+    		{{entry.mood}}, {{entry.range}}, {{entry.trigger}}, {{entry.beliefs}}, {{entry.behavior}}, {{entry.comments}}
+    	</p>
+
+    </div>
+	</ion-content>
+
 </ion-view>
