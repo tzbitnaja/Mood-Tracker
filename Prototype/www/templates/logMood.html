@@ -1,38 +1,59 @@
-<ion-view title="Log Mood" id="page3">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
-            <label class="item item-select" name="Select Mood">
-                <span class="input-label">Mood*</span>
-                <select>
-                    <option>-Select-</option>
-                    <option>Happy</option>
-                    <option>Sad</option>
-                    <option>Angry</option>
-                    <option>Afraid</option>
-                </select>
-            </label>
-            <ion-item class="range range-positive">Range*
-                <input type="range" value="5" min="0" max="10">
-            </ion-item>
-            <label class="item item-input" name="Trigger">
-                <span class="input-label">Trigger*</span><textarea placeholder="Enter text"> </textarea>
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Beliefs</span><textarea placeholder="Enter text (optional)"> </textarea>
-            </label>
-            <label class="item item-input" name="Behavior">
-                <span class="input-label">Behavior</span><textarea placeholder="Enter text (optional)"> </textarea>
-            </label>
-            <label class="item item-input" name="Comments">
-                <span class="input-label">Comments</span><textarea placeholder="Enter text (optional)"> </textarea>
-            </label>
-        </form>
-        <div id="logMood-markdown1" style="color:#000000;">
-            <p>* Required field</p>
-        </div>
-        <div class="button-bar">
-            <a ui-sref="tabsController.home" id="logMood-button1" class="button button-balanced  button-block">Submit</a>
-            <a ui-sref="tabsController.home" id="logMood-button2" class="button button-positive  button-block">Cancel</a>
-        </div>
-    </ion-content>
-</ion-view>
+<body ng-app="app" ng-controller="logMoodCtrl">
+    <ion-view title="Log Mood" id="page3">
+        <ion-nav-buttons side = "right">
+            <button class="button icon ion-gear-a" ng-click="showSettings()"></button>
+        </ion-nav-buttons>
+        <ion-content overflow-scroll="true" padding="true" class="has-header">
+            <form class="list">
+                <div>
+                    <div style="float: left; width: 74%"><label class="item item-select" name="Select Mood">
+                        <span class="input-label">Mood*</span>
+                        <select>
+                            <option>-Select-</option>
+                            <option>Angry</option>
+                            <option>Sad</option>
+                            <option>Happy</option>
+                            <option>Stressed</option>
+                            <option>Hungry</option>
+                            <option>Anxious</option>
+                            <option>Jealous</option>
+                            <option>Depressed</option>
+                            <option>Tired</option>
+                        </select>
+                    </label>
+                    </div>
+                    <div style="float: right; width: 25%",class="button-bar">
+                        <a ui-sref="tabsController.home" id="logMood-button1" class="button button-calm  button-block">Create New Mood</a>
+                    </div>
+                    <div style="float: left; width: 100%"><ion-item class="range range-positive">Range*
+                        <input type="range" value="5" min="1" max="10">
+                    </ion-item>
+                    </div>
+                    <div style="float: left; width: 100%"><label class="item item-input" name="Trigger">
+                        <span class="input-label">Trigger*</span><textarea placeholder="Enter text"> </textarea>
+                    </label>
+                    </div>
+                    <div style="float: left; width: 100%"><label class="item item-input">
+                        <span class="input-label">Beliefs</span><textarea placeholder="Enter text (optional)"> </textarea>
+                    </label>
+                    </div>
+                    <div style="float: left; width: 100%"><label class="item item-input" name="Behavior">
+                        <span class="input-label">Behavior</span><textarea placeholder="Enter text (optional)"> </textarea>
+                    </label>
+                    </div>
+                    <div style="float: left; width: 100%"><label class="item item-input" name="Comments">
+                        <span class="input-label">Comments</span><textarea placeholder="Enter text (optional)"> </textarea>
+                    </label>
+                    </div>
+                </div>
+            </form>
+            <div id="logMood-markdown1" style="color:#000000;">
+                <p>* Required field</p>
+            </div>
+            <div class="button-bar">
+                <a ui-sref="tabsController.home" id="logMood-button1" class="button button-balanced  button-block" ng-click="showSubmit()">Submit</a>
+                <a ui-sref="tabsController.logMood" id="logMood-button2" class="button button-positive  button-block" ng-click="showCancel()">Cancel</a>
+            </div>
+        </ion-content>
+    </ion-view>
+</body>
