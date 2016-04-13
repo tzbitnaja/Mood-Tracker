@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('homeCtrl', function($scope) {
+.controller('homeCtrl', function($scope, $ionicPopup, $timeout) {
 
   $scope.showSettings = function() {
   	$scope.data = {}
@@ -98,8 +98,6 @@ angular.module('app.controllers', [])
   	});
   };
 
-
-
   $scope.defaultMoods = [{
     mood: 'Angry'
   },{
@@ -131,7 +129,7 @@ angular.module('app.controllers', [])
 };
 })
 
-.controller('moodLogCtrl', function($scope) {
+.controller('moodLogCtrl', function($scope, $ionicPopup, $timeout) {
 
   $scope.showSettings = function() {
   	$scope.data = {}
@@ -169,7 +167,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('trackProgressCtrl', function($scope) {
+.controller('trackProgressCtrl', function($scope, $ionicPopup, $timeout) {
 
   $scope.showSettings = function() {
   	$scope.data = {}
