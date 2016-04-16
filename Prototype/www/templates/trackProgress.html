@@ -1,3 +1,12 @@
 <ion-view title="Track Progress" id="page5">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="button-bar">
+            <a class="button" ng-click="moodSelection()">Moods</a>
+            <a class="button">second button</a>
+        </div>
+        <h1>{{someText}}</h1>
+        <div>
+     <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick"></canvas>
+            </div>
+    </ion-content>
 </ion-view>
