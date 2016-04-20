@@ -81,23 +81,25 @@ angular.module('app.controllers', [])
 
 })
     // displays line graphs of mood intensity and date
-.controller('trackProgressCtrl', ['$scope', function ($scope, Number) {
-    $scope.someText = Number;
-    //$scope.labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
-    //$scope.series = ["Series A", "Series B"];
-    //$scope.data = [
-    //    [65, 59, 80, 81, 56, 55, 40],
-    //    [28, 48, 40, 18, 86, 27, 90]
-    //];
-    //$scope.onClick = function (points, evt) {
-    //    console.log(points, evt);
-    //};
-    //$scope.moodSelection = function () {
-    //    $scope.data = [
-    //        [10, 12, 15],
-    //        [22, 10, 8]
-    //    ];
-    //};
+.controller('trackProgressCtrl', ['$scope', 'MoodRecords', function ($scope, MoodRecords) {
+    $scope.recs = MoodRecords
+    $scope.someText = $scope.recs[0].mood;
+
+    $scope.labels = $scope.recs.map(function(a) {return a.date.getMonth() + "/" + a.date.getDay() + "/" + a.date.getFullYear()});
+    $scope.series;// = $scope.recs.map(function(a) {return a.mood});
+    $scope.data = [
+       [65, 59, 80, 81, 56, 55, 40],
+       [28, 48, 40, 18, 86, 27, 90]
+    ];
+    $scope.onClick = function (points, evt) {
+       console.log(points, evt);
+    };
+    $scope.moodSelection = function () {
+       $scope.data = [
+           [10, 12, 15],
+           [22, 10, 8]
+       ];
+    };
 }])
 
 //controller for a modal, thinking about using it for submit mood
