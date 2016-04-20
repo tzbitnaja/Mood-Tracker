@@ -13,17 +13,33 @@ angular.module('app.services', [])
 	//call this service to update the logs we have
 
 	//moodData contains MoodLogEntries, which are created by using the CreateMoodLogEntryService
-	this.moodData = [];
+	// var moodData = [];
 
 	//get the full list of logs, in order of their creation
 	this.getMoodData = function(){
-		return this.moodData;
+		var retrievedObject = localStorage.getItem('moodData');
+		if(retrievedObject === null){
+			var empty = [];
+			localStorage.setItem('moodData', JSON.stringify(empty));
+			retrievedObject = localStorage.getItem('moodData');
+		}
+		return JSON.parse(retrievedObject);
 	}
 
 	//add new log to the data
 	this.addMoodData = function(mood){
-		this.moodData.push(mood);
+		var retrievedObject = localStorage.getItem('moodData');
+		if(retrievedObject === null){
+			var empty = [];
+			localStorage.setItem('moodData', JSON.stringify(empty));
+			retrievedObject = localStorage.getItem('moodData');
+		}
+		var moodDataTemp = JSON.parse(retrievedObject);
+		moodDataTemp.push(mood);
+		localStorage.setItem('moodData', JSON.stringify(moodDataTemp));
 	}
+
+
 
 }])
 
@@ -39,6 +55,7 @@ angular.module('app.services', [])
 			this.beliefs = beliefs;
 			this.behavior = behavior;
 			this.comments = comments;
+			// this.timestamp = //time function here
 		}
 	}
 
@@ -52,4 +69,3 @@ angular.module('app.services', [])
 
 
 ;
-
