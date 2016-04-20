@@ -1,4 +1,7 @@
 <ion-view title="Mood Log" id="page4">
+    <ion-nav-buttons side = "right">
+        <button class="button icon ion-gear-a" ng-click="showSettings()"></button>
+    </ion-nav-buttons>
     <ion-content overflow-scroll="true" padding="true" class="has-header">
     <!--  repeat through all the log entries-->
     <div class="logs" ng-repeat='entry in entries'>
@@ -6,8 +9,6 @@
     	<p class="log" >
     		{{entry.mood}}, {{entry.range}}, {{entry.trigger}}, {{entry.beliefs}}, {{entry.behavior}}, {{entry.comments}}
     	</p>
-
     </div>
 	</ion-content>
-
 </ion-view>
