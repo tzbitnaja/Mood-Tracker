@@ -6,9 +6,9 @@
         <ion-content overflow-scroll="true" padding="true" class="has-header">
             <form class="list">
                 <div>
-                    <div style="float: left; width: 74%"><label class="item item-select" name="Select Mood">
+                    <div style="float: left; width: 75%"><label class="item item-select" name="Select Mood">
                         <span class="input-label">Mood*</span>
-                        <select>
+                        <select ng-model = 'mood'>
                             <option>-Select-</option>
                             <option>Angry</option>
                             <option>Sad</option>
@@ -51,7 +51,7 @@
                 <p>* Required field</p>
             </div>
             <div class="button-bar">
-                <a ui-sref="tabsController.home" id="logMood-button1" class="button button-balanced  button-block" ng-click="showSubmit()">Submit</a>
+                <a ui-sref="tabsController.home" id="logMood-button1" class="button button-balanced  button-block" ng-click="submitLog()">Submit</a>
                 <a ui-sref="tabsController.logMood" id="logMood-button2" class="button button-positive  button-block" ng-click="showCancel()">Cancel</a>
             </div>
         </ion-content>

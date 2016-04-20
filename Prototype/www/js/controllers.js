@@ -24,7 +24,21 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('logMoodCtrl', function($scope, $ionicPopup, $timeout) {
+.controller('logMoodCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService','CreateMoodLogEntryService', function($scope, $ionicPopup, $timeout, MoodLogService, CreateMoodLogEntryService) {
+ 
+  $scope.mood ='';
+  $scope.range = '';
+  $scope.trigger ='';
+  $scope.beliefs ='';
+  $scope.behavior ='';
+  $scope.comments ='';
+
+  //when submit button clicked (in logMood.html there's a reference to this method)
+  $scope.submitLog = function(){ 
+  	MoodLogService.addMoodData(CreateMoodLogEntryService.createMoodLogEntry(this.mood, this.range, this.trigger, this.beliefs, this.behavior, this.comments));
+  	console.log("Submit(). here's the data in our MoodLog:");
+  	console.log(MoodLogService.getMoodData());
+  };
 
   $scope.showSettings = function() {
   	$scope.data = {}
@@ -120,16 +134,16 @@ angular.module('app.controllers', [])
 
   //should this be submit instead?
   $scope.AddMood = function (data) {
-  $scope.MoodList.push({
-    mood: data.newMood,
-    trigger: data.newTrigger,
-    comment: data.newComment
-  });
-  data.newItem = '';
-};
-})
+	  $scope.MoodList.push({
+	    mood: data.newMood,
+	    trigger: data.newTrigger,
+	    comment: data.newComment
+	  });
+	  data.newItem = '';
+	};
+}])
 
-.controller('moodLogCtrl', function($scope, $ionicPopup, $timeout) {
+.controller('moodLogCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService', function($scope, $ionicPopup, $timeout) {
 
   $scope.showSettings = function() {
   	$scope.data = {}
@@ -165,7 +179,7 @@ angular.module('app.controllers', [])
         comment: ''
       }];
 
-})
+}])
 
 .controller('trackProgressCtrl', function($scope, $ionicPopup, $timeout) {
 
@@ -188,30 +202,5 @@ angular.module('app.controllers', [])
 
   	})
   };
-
 })
-
-//controller for a modal, thinking about using it for submit mood
-.controller('modalController', function($scope, $ionicModal) {
-  $ionicModal.fromTemplateUrl('my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-  //Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-
-});
+ 

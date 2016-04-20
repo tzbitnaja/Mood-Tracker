@@ -2,14 +2,13 @@
     <ion-nav-buttons side = "right">
         <button class="button icon ion-gear-a" ng-click="showSettings()"></button>
     </ion-nav-buttons>
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
-    <ion-content>
-        <ion-list ng-controller="moodLogCtrl">
-          <ion-item ng-repeat="item in MoodList", class="item-thumbnail-left">
-            <h2>{{item.mood}}</h2>
-            <p>{{item.intensity}}</p>
-            <p>{{item.trigger}}</p>
-          </ion-item>
-        </ion-list>
-      </ion-content>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <!--  repeat through all the log entries-->
+    <div class="logs" ng-repeat='entry in entries'>
+    	<!-- display logs-->
+    	<p class="log" >
+    		{{entry.mood}}, {{entry.range}}, {{entry.trigger}}, {{entry.beliefs}}, {{entry.behavior}}, {{entry.comments}}
+    	</p>
+    </div>
+	</ion-content>
 </ion-view>
