@@ -25,6 +25,14 @@ angular.module('app.services', [])
 		this.moodData.push(mood);
 	}
 
+	//annotate mood
+	this.annotateMoodLog = function(MoodLogEntry, annotation){
+		var entry_index = this.moodData.indexOf(MoodLogEntry);
+		if (entry_index != -1){ //Valid index was found
+			this.moodData[entry_index].comments += " [ANNOTATION]:"+annotation; //update comments (adding annotation)
+		}
+	}
+
 }])
 
 .service('CreateMoodLogEntryService', [function(){
