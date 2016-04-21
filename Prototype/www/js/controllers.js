@@ -143,7 +143,7 @@ angular.module('app.controllers', [])
 	};
 }])
 
-.controller('moodLogCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService', function($scope, $ionicPopup, $timeout) {
+.controller('moodLogCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService', function($scope, $ionicPopup, $timeout, $MoodLogService) {
 
   $scope.showSettings = function() {
   	$scope.data = {}
@@ -178,6 +178,8 @@ angular.module('app.controllers', [])
         trigger: '',
         comment: ''
       }];
+
+  $scope.entries = $MoodLogService.getMoodData();
 
 }])
 

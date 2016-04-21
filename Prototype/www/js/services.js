@@ -23,6 +23,7 @@ angular.module('app.services', [])
 			localStorage.setItem('moodData', JSON.stringify(empty));
 			retrievedObject = localStorage.getItem('moodData');
 		}
+		console.log("hey")
 		return JSON.parse(retrievedObject);
 	}
 
