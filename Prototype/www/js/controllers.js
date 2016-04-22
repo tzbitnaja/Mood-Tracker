@@ -86,10 +86,11 @@ angular.module('app.controllers', [])
 
     $scope.labels = $scope.chartData.labels;//$scope.recs.map(function(a) {return a.date.getMonth() + "/" + a.date.getDay() + "/" + a.date.getFullYear()});
     $scope.series = $scope.chartData.series;//$scope.recs.map(function(a) {return a.mood});
-    $scope.data = [
-       [65, 59, 80, 81, 56, 55, 40],
-       [28, 48, 40, 18, 86, 27, 90]
-    ];
+    $scope.data = $scope.chartData.data;
+    //    [
+    //   [65, 59, 80, 81, 56, 55, 40],
+    //   [28, 48, 40, 18, 86, 27, 90]
+    //];
     $scope.someText = $scope.chartData.series;
     $scope.onClick = function (points, evt) {
        console.log(points, evt);
