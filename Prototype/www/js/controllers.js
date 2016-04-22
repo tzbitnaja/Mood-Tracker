@@ -81,16 +81,16 @@ angular.module('app.controllers', [])
 
 })
     // displays line graphs of mood intensity and date
-.controller('trackProgressCtrl', ['$scope', 'MoodRecords', function ($scope, MoodRecords) {
-    $scope.recs = MoodRecords
-    $scope.someText = $scope.recs[0].mood;
+.controller('trackProgressCtrl', ['$scope', 'GetChartData', function ($scope, GetChartData) {
+    $scope.chartData = GetChartData;
 
-    $scope.labels = $scope.recs.map(function(a) {return a.date.getMonth() + "/" + a.date.getDay() + "/" + a.date.getFullYear()});
-    $scope.series;// = $scope.recs.map(function(a) {return a.mood});
+    $scope.labels = $scope.chartData.labels;//$scope.recs.map(function(a) {return a.date.getMonth() + "/" + a.date.getDay() + "/" + a.date.getFullYear()});
+    $scope.series = $scope.chartData.series;//$scope.recs.map(function(a) {return a.mood});
     $scope.data = [
        [65, 59, 80, 81, 56, 55, 40],
        [28, 48, 40, 18, 86, 27, 90]
     ];
+    $scope.someText = $scope.chartData.series;
     $scope.onClick = function (points, evt) {
        console.log(points, evt);
     };
