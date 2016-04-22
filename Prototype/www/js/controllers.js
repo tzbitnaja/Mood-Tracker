@@ -84,22 +84,12 @@ angular.module('app.controllers', [])
 .controller('trackProgressCtrl', ['$scope', 'GetChartData', function ($scope, GetChartData) {
     $scope.chartData = GetChartData;
 
-    $scope.labels = $scope.chartData.labels;//$scope.recs.map(function(a) {return a.date.getMonth() + "/" + a.date.getDay() + "/" + a.date.getFullYear()});
-    $scope.series = $scope.chartData.series;//$scope.recs.map(function(a) {return a.mood});
+    $scope.labels = $scope.chartData.labels;
+    $scope.series = $scope.chartData.series;
     $scope.data = $scope.chartData.data;
-    //    [
-    //   [65, 59, 80, 81, 56, 55, 40],
-    //   [28, 48, 40, 18, 86, 27, 90]
-    //];
     $scope.someText = $scope.chartData.series;
     $scope.onClick = function (points, evt) {
        console.log(points, evt);
-    };
-    $scope.moodSelection = function () {
-       $scope.data = [
-           [10, 12, 15],
-           [22, 10, 8]
-       ];
     };
 }])
 

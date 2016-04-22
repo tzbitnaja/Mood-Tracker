@@ -13,7 +13,6 @@ angular.module('app.services', [])
 .factory('GetChartData', [function () {
     // some blahblahblah random generated data
     recs = [
-    //var m1 = {
     {
         mood: 'angry',
         degree: 10,
@@ -21,50 +20,55 @@ angular.module('app.services', [])
         date: new Date(2016, 1, 2)
     },
 
-        {
-            mood: 'angry',
-            degree: 10,
-            notes: "",
-            date: new Date(2016, 1, 2)
-        },
+    {
+        mood: 'angry',
+        degree: 10,
+        notes: "",
+        date: new Date(2016, 1, 2)
+    },
 
-            {
-                mood: 'angry',
-                degree: 10,
-                notes: "",
-                date: new Date(2016, 1, 2)
-            },
+    {
+        mood: 'angry',
+        degree: 10,
+        notes: "",
+        date: new Date(2016, 1, 2)
+    },
 
-    //var m2 = {
-      {
-          mood: 'angry',
-          degree: 8,
-          notes: "",
-          date: new Date(2016, 1, 4)
-      },
+    {
+        mood: 'angry',
+        degree: 8,
+        notes: "",
+        date: new Date(2016, 1, 4)
+    },
 
-      {
-          mood: 'angry',
-          degree: 8,
-          notes: "",
-          date: new Date(2016, 1, 4)
-      },
+   {
+       mood: 'angry',
+       degree: 8,
+       notes: "",
+       date: new Date(2016, 1, 4)
+   },
 
-      {
-          mood: 'hungry',
-          degree: 8,
-          notes: "",
-          date: new Date(2016, 1, 4)
-      },
+   {
+       mood: 'hungry',
+       degree: 8,
+       notes: "",
+       date: new Date(2016, 1, 4)
+   },
 
-      {
-            mood: 'happy',
-            degree: 4,
-            notes: "",
-            date: new Date(2016, 1, 4)
-        },
+   {
+       mood: 'happy',
+       degree: 4,
+       notes: "",
+       date: new Date(2016, 1, 4)
+   },
 
-    //var m3 = {
+   {
+       mood: 'angry',
+       degree: 5,
+       notes: "",
+       date: new Date(2016, 1, 10)
+   },
+
      {
          mood: 'angry',
          degree: 5,
@@ -73,27 +77,19 @@ angular.module('app.services', [])
      },
 
      {
-             mood: 'angry',
-             degree: 5,
-             notes: "",
-             date: new Date(2016, 1, 10)
-         },
+         mood: 'happy',
+         degree: 5,
+         notes: "",
+         date: new Date(2016, 1, 10)
+     },
 
      {
-           mood: 'happy',
-           degree: 5,
-           notes: "",
-           date: new Date(2016, 1, 10)
-       },
+         mood: 'sad',
+         degree: 5,
+         notes: "",
+         date: new Date(2016, 1, 10)
+     },
 
-     {
-                 mood: 'sad',
-                 degree: 5,
-                 notes: "",
-                 date: new Date(2016, 1, 10)
-             },
-
-    //var m4 = {
     {
         mood: 'sad',
         degree: 10,
