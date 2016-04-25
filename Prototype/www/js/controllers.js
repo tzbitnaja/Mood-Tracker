@@ -186,7 +186,10 @@ angular.module('app.controllers', [])
 
 // displays line graphs of mood intensity and date
 .controller('trackProgressCtrl', ['$scope', 'GetChartData', function ($scope, GetChartData) {
+  "use strict";
     $scope.chartData = GetChartData;
+   // var ctx = document.getElementById("chart").getContext("2d");
+   // var moodChart = new Chart(ctx).Line(data, options);
 
     $scope.labels = $scope.chartData.labels;
     $scope.series = $scope.chartData.series;

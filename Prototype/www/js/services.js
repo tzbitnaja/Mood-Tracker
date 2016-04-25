@@ -72,7 +72,8 @@ angular.module('app.services', [])
     // for now, just returns some stock mood data
 .factory('GetChartData', [function () {
     // some blahblahblah random generated data
-    recs = [
+    "use strict";
+    var recs = [
     {
         mood: 'angry',
         degree: 10,
@@ -170,8 +171,8 @@ angular.module('app.services', [])
     }
 
     // temporary arrays for getting the data into a usable form
-    dates = new Array(recs.length);
-    moods = new Array(recs.length);
+    var dates = new Array(recs.length);
+    var moods = new Array(recs.length);
     for (var i = 0; i < recs.length; i++) {
         dates[i] = recs[i].date;
         moods[i] = recs[i].mood;
