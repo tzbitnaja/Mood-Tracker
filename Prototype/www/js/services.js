@@ -67,10 +67,6 @@ angular.module('app.services', [])
 
 }])
 
-
-
-;
-
     // (eventually) grabs the mood data from localStorage
     // for now, just returns some stock mood data
 .factory('GetChartData', [function () {
