@@ -10,7 +10,7 @@ angular.module('app.controllers', [])
   		scope: $scope,
   		buttons: [
   			{ text: 'Cancel' },
-  			{ 
+  			{
   			  text: '<b>Save</b>',
   			  type: 'button-positive'
   			  //onTap
@@ -25,7 +25,7 @@ angular.module('app.controllers', [])
 })
 
 .controller('logMoodCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService','CreateMoodLogEntryService', function($scope, $ionicPopup, $timeout, MoodLogService, CreateMoodLogEntryService) {
- 
+
   $scope.mood ='';
   $scope.range = '';
   $scope.trigger ='';
@@ -34,7 +34,7 @@ angular.module('app.controllers', [])
   $scope.comments ='';
 
   //when submit button clicked (in logMood.html there's a reference to this method)
-  $scope.submitLog = function(){ 
+  $scope.submitLog = function(){
   	MoodLogService.addMoodData(CreateMoodLogEntryService.createMoodLogEntry(this.mood, this.range, this.trigger, this.beliefs, this.behavior, this.comments));
   	console.log("Submit(). here's the data in our MoodLog:");
   	console.log(MoodLogService.getMoodData());
@@ -48,7 +48,7 @@ angular.module('app.controllers', [])
   		scope: $scope,
   		buttons: [
   			{ text: 'Cancel' },
-  			{ 
+  			{
   			  text: '<b>Save</b>',
   			  type: 'button-positive'
   			  //onTap
@@ -145,6 +145,7 @@ angular.module('app.controllers', [])
 
 .controller('moodLogCtrl', ['$scope', '$ionicPopup', '$timeout', 'MoodLogService', function($scope, $ionicPopup, $timeout, $MoodLogService) {
 
+
   $scope.showSettings = function() {
   	$scope.data = {}
   	var customPopup = $ionicPopup.show({
@@ -153,7 +154,7 @@ angular.module('app.controllers', [])
   		scope: $scope,
   		buttons: [
   			{ text: 'Cancel' },
-  			{ 
+  			{
   			  text: '<b>Save</b>',
   			  type: 'button-positive'
   			  //onTap
@@ -183,26 +184,40 @@ angular.module('app.controllers', [])
 
 }])
 
-.controller('trackProgressCtrl', function($scope, $ionicPopup, $timeout) {
+// displays line graphs of mood intensity and date
+.controller('trackProgressCtrl', ['$scope', 'GetChartData', function ($scope, GetChartData) {
+    $scope.chartData = GetChartData;
 
-  $scope.showSettings = function() {
-  	$scope.data = {}
-  	var customPopup = $ionicPopup.show({
-  		title: 'Settings',
-  		template: 'setting stuff',
-  		scope: $scope,
-  		buttons: [
-  			{ text: 'Cancel' },
-  			{ 
-  			  text: '<b>Save</b>',
-  			  type: 'button-positive'
-  			  //onTap
-  			},
-  		]
-  	});
-  	customPopup.then(function(res) {
+    $scope.labels = $scope.chartData.labels;
+    $scope.series = $scope.chartData.series;
+    $scope.data = $scope.chartData.data;
+    $scope.someText = $scope.chartData.series;
+    $scope.onClick = function (points, evt) {
+       console.log(points, evt);
+    };
+}])
 
-  	})
-  };
-})
- 
+//controller for a modal, thinking about using it for submit mood
+.controller('modalController', function ($scope, $ionicModal) {
+    $ionicModal.fromTemplateUrl('my-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
+    $scope.openModal = function () {
+        $scope.modal.show();
+    };
+    $scope.closeModal = function () {
+        $scope.modal.hide();
+    };
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+        $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function () {
+        // Execute action
+    });
+
+});
