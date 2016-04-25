@@ -45,6 +45,7 @@ angular.module('app.services', [])
 }])
 
 .service('CreateMoodLogEntryService', [function(){
+    "use strict";
 
 	//a mood log entry
 	//todo: time of creation...etc.
