@@ -8,7 +8,6 @@ angular.module('app.services', [])
 
 }])
 
-<<<<<<< HEAD
 .service('MoodLogService', [function(){
 
 	//call this service to update the logs we have
@@ -68,10 +67,6 @@ angular.module('app.services', [])
 
 }])
 
-
-
-;
-=======
     // (eventually) grabs the mood data from localStorage
     // for now, just returns some stock mood data
 .factory('GetChartData', [function () {
@@ -194,7 +189,7 @@ angular.module('app.services', [])
             chartData.series.push(moods[i]);
     }
 
-    // populate the chart data with zeros.  this is here so that the data lines up with 
+    // populate the chart data with zeros.  this is here so that the data lines up with
     // the labels, even when a mood isn't experienced on a given day
     for (var i = 0; i < chartData.series.length; i++) {
         chartData.data.push([]);
@@ -228,4 +223,3 @@ angular.module('app.services', [])
     }
     return chartData;
 }]);
->>>>>>> kaljubranch
