@@ -185,8 +185,11 @@ angular.module('app.controllers', [])
 }])
 
 // displays line graphs of mood intensity and date
-.controller('trackProgressCtrl', ['$scope', 'GetChartData', function ($scope, GetChartData) {
-  "use strict";
+.controller('trackProgressCtrl', ['$scope','$ionicSideMenuDelegate', '$ionicListDelegate', 'GetChartData', function ($scope, $ionicSideMenuDelegate, $ionicListDelegate, GetChartData) {
+    "use strict";
+    $scope.left = function () {
+        $ionicSideMenuDelegate.toggleLeft();
+    }
     $scope.chartData = GetChartData;
    // var ctx = document.getElementById("chart").getContext("2d");
    // var moodChart = new Chart(ctx).Line(data, options);
