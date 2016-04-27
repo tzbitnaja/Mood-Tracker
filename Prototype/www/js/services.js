@@ -44,12 +44,12 @@ angular.module('app.services', [])
 
 }])
 
-.service('CreateMoodLogEntryService', [function(){
-    "use strict";
+.factory('CreateMoodLogEntryService', [function(){
+    // "use strict";
 
 	//a mood log entry
 	//todo: time of creation...etc.
-	class MoodLogEntry{
+	/*class MoodLogEntry{
 		constructor(mood, range, trigger, beliefs, behavior, comments){
 			this.mood = mood;
 			this.range = range;
@@ -59,12 +59,21 @@ angular.module('app.services', [])
 			this.comments = comments;
 			// this.timestamp = //time function here
 		}
-	}
+	}*/
 
 	//returns a new instance of MoodLogEntry with given params
-	this.createMoodLogEntry = function(mood, range, trigger, beliefs, behavior, comments){
-		return new MoodLogEntry(mood, range, trigger, beliefs, behavior, comments);
-	}
+	return {
+        createMoodLogEntry : function(mood, range, trigger, beliefs, behavior, comments){
+    		return {
+                mood : mood,
+                range : range,
+                trigger : trigger,
+                beliefs : beliefs,
+                behavior : behavior,
+                comments : comments
+            };
+    	}
+    }
 
 }])
 
