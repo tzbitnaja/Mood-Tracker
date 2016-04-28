@@ -28,12 +28,12 @@
                 <h1 class="title">Moods</h1>
             </ion-header-bar>
             <ion-content>
-                <ul class="list" ng-repeat="thing in chartData.series">
+                <ul class="list" ng-repeat="thing in switches">
 
                     <li class="item item-toggle">
-                        {{thing}}
+                        {{thing.text}}
                         <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" ng-model="thing.checked" ng-checked="thing.checked" ng-change="reChart()">
                             <div class="track">
                                 <div class="handle"></div>
                             </div>

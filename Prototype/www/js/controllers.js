@@ -187,19 +187,37 @@ angular.module('app.controllers', [])
 // displays line graphs of mood intensity and date
 .controller('trackProgressCtrl', ['$scope','$ionicSideMenuDelegate', '$ionicListDelegate', 'GetChartData', function ($scope, $ionicSideMenuDelegate, $ionicListDelegate, GetChartData) {
     "use strict";
+    // opens and closes the left side menu
     $scope.left = function () {
         $ionicSideMenuDelegate.toggleLeft();
     }
+    // get chart data from factory
     $scope.chartData = GetChartData;
-   // var ctx = document.getElementById("chart").getContext("2d");
-   // var moodChart = new Chart(ctx).Line(data, options);
-
+    // create scope variables
+    $scope.switches = [];
     $scope.labels = $scope.chartData.labels;
     $scope.series = $scope.chartData.series;
     $scope.data = $scope.chartData.data;
+    // debugging variable
     $scope.someText = $scope.chartData.series;
+    // create side menu toggles
+    for (var i = 0; i < $scope.chartData.series.length; i++) {
+        $scope.switches.push({ text: $scope.series[i], checked: true });
+    }
     $scope.onClick = function (points, evt) {
        console.log(points, evt);
+    };
+    // redraws chart when toggles are toggled
+    $scope.reChart = function () {
+        // zero out series and data
+        $scope.series = [];
+        $scope.data = [];
+        for (var i = 0; i < $scope.switches.length; i++) {
+            if ($scope.switches[i].checked) {
+                $scope.series.push($scope.chartData.series[i]);
+                $scope.data.push($scope.chartData.data[i]);
+            }
+        }
     };
 }])
 
