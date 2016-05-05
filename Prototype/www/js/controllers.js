@@ -182,6 +182,30 @@ angular.module('app.controllers', [])
 
   $scope.entries = $MoodLogService.getMoodData();
 
+    //popup to add annotations to a mood log
+  $scope.annotation = {};
+  $scope.annotateLog = function(entry){ 
+    //.annotateMoodLog(entry, "hey");
+    console.log("annotateLog(), pressed");
+    $ionicPopup.show({
+       template: '<input type="text" ng-model="annotation.text">', //input for annotation
+       title: 'Annotate Mood Log',
+       subTitle: 'Please enter your annotation.',
+       scope: $scope,
+       buttons: [
+         { text: 'Cancel' }, //cancel input
+         {
+           text: '<b>Save</b>', //save input (add annotation)
+           type: 'button-positive',
+           onTap: function() {
+             $MoodLogService.annotateMoodLog(entry, $scope.annotation.text); //add the annotation
+             $scope.annotation.text = ""; //reset text input so it's clear for next annotation
+           }
+         },
+       ]
+     });
+  }; //end popup
+
 }])
 
 // displays line graphs of mood intensity and date

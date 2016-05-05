@@ -40,7 +40,32 @@ angular.module('app.services', [])
 		localStorage.setItem('moodData', JSON.stringify(moodDataTemp));
 	}
 
+    //annotate mood
+    this.annotateMoodLog = function(MoodLogEntry, annotation){
+        var mood_data = localStorage.getItem('moodData');
+        var mood_data_temp = JSON.parse(mood_data);
+        var entry_index = -1;
+        //find index of log entry
+        for (var i=0;i<mood_data_temp.length;i++){
+            if (mood_data_temp[i]['mood'] === MoodLogEntry['mood']
+                && mood_data_temp[i]['range'] === MoodLogEntry['range']
+                && mood_data_temp[i]['behavior'] === MoodLogEntry['behavior']
+                && mood_data_temp[i]['trigger'] === MoodLogEntry['trigger']
+                && mood_data_temp[i]['beliefs'] === MoodLogEntry['beliefs']
+                && mood_data_temp[i]['comments'] === MoodLogEntry['comments']){
 
+                entry_index = i;
+                break;
+            }
+        }
+        console.log(entry_index);
+        
+        // add annoation
+        mood_data_temp[entry_index]['comments'] += " ,"+annotation;
+        //save annotation to storage
+        localStorage.setItem('moodData', JSON.stringify(mood_data_temp));
+
+    }
 
 }])
 
